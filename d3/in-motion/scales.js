@@ -32,7 +32,7 @@ const colors = [
 	'brown',
 ];
 
-d3.csv('csv/LCRM.csv', row).then((data) => {
+d3.csv('csv/LCRM_OC_3-5K.csv', row).then((data) => {
 	xScale
 		.domain([
 			d3.min(data, (d) => d['Total Raised']),
@@ -52,7 +52,7 @@ d3.csv('csv/LCRM.csv', row).then((data) => {
 		.enter()
 		.append('circle')
 		.attr('cx', (d) => xScale(d['Total Raised']))
-		.attr('cy', (d) => yScale(d['Total Raised']) * getRandomArbitrary(1, 7))
+		.attr('cy', (d) => yScale(d['Total Raised']))
 		.attr('r', 10)
 		.attr('fill', () => colors[Math.round(getRandomArbitrary(1, 7))]);
 });
