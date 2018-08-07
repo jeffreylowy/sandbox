@@ -2,9 +2,12 @@
 
 Notes from Manning's Angular 2 with Typescript
 
-## High Level Overview
+Examples:
+[Github](https://github.com/Farata/angular2typescript)
 
-- Angular(2+) is more performant than AngularJS (1)
+## Notes
+
+- Angular(2+) is more performant than AngularJS (1).
 
 ### Stuff to research
 
