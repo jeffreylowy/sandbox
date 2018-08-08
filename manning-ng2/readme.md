@@ -36,6 +36,7 @@ export class AppModule {}
 - Components are the main building block of an Angular app.
 - Each component consists of two parts: the view (ui) and the class that implements the logic behind the view.
 - A view is the result of merging the UI layout with the data.
+- Each component is basically a directive with an associated view, but unlike a component, a directive doesn’t have its own view.
 
 ```javascript
 // Think of the Component decorator as a config function that complements the class.
@@ -50,11 +51,42 @@ export class AppModule {}
 class HelloComponent {}
 ```
 
+#### Directives
+
+- Each component is basically a directive with an associated view, but unlike a component, a directive doesn’t have its own view.
+- All directives that are used in the module need to be added to the declaration prop- erty of the @NgModule decorator, as in this example:
+
+hightlight-directive.js
+
+```javascript
+// A directive that changes the background of the attached element to blue:
+import { Directive, ElementRef, Renderer } from "@angular/core";
+@Directive({ selector: "[highlight]" })
+export class HighlightDirective {
+  constructor(renderer: Renderer, el: ElementRef) {
+    renderer.setElementStyle(el.nativeElement, "backgroundColor", "blue");
+  }
+}
+```
+
+```html
+<h1 highlight>Hello World</h1>
+```
+
+root-module.js
+
+```javascript
+@NgModule({
+  imports: [ BrowserModule ],
+  declarations: [ HelloWorldComponent, HighlightDirective ],
+  bootstrap: [ HelloWorldComponent ]
+})
+...
+```
+
 #### Stuff to research
 
 - Decorators
 - SystemJS
 - Template local variables
 - Typescript
-
-#### Directives
