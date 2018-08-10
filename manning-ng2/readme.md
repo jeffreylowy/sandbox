@@ -90,7 +90,9 @@ root-module.js
 
 #### Stuff to research
 
-- Decorators
 - SystemJS
 - Template local variables
 - Typescript
+  - Decorators
+  - Member ordering
+  - Private/public/protected class properties

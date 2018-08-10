@@ -1,3 +1,15 @@
-<p>
-  product-item works!
-</p>
+<!-- Angular evaluates the value of the expression within the braces, turns the result into a string, and replaces this expression in the template with the resulting string. Internally this process is implemented using string interpolation. -->
+
+<div class="thumbnail">
+  <img src="http://placehold.it/320x150">
+  <div class="caption">
+    <h4 class="pull-right">{{ product.price }}</h4>
+    <h4>
+      <a>{{ product.title }}</a>
+    </h4>
+    <p>{{ product.description }}</p>
+  </div>
+  <div>
+    <app-stars [rating]="product.rating"></app-stars>
+  </div>
+</div>

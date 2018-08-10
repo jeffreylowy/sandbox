@@ -1,3 +1,23 @@
-<p>
-  application works!
-</p>
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <app-search></app-search>
+    </div>
+    <div class="col-md-9">
+      <div class="row carousel-holder">
+        <div class="col-md-12">
+          <app-carousel></app-carousel>
+        </div>
+      </div>
+      <div class="row">
+        <!-- This <div> will be rendered for each item in the array. -->
+        <div *ngFor="let prod of products" class="col-sm-4 col-lg-4 col-md-4">
+          <!-- [product] refers to the property-named product inside the component represented by <a-product-item>. and prod is a local tem- plate variable declared on the fly in the *ngFor directive as let prod.-->
+          <app-product-item [product]="prod"></app-product-item>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
