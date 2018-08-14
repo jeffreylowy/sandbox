@@ -1,3 +1,13 @@
+# To Finish Chapter 2:
+
+To finish this project, copy the missing components from the chapter2/auction direc- tory to the corresponding directories of your project:
+
+- The services directory contains the product-service.ts file that declares two classes: Product and ProductService. This is where the data for the auction comes from. We’ll provide more details about the content of this file in the hands-on section of chapter 3.
+- The navbar directory contains the code for the top navigation bar.
+- The footer directory contains the code for the footer of the page.
+- The search directory contains the initial code for the SearchComponent, which is a form that you’ll develop in chapter 7.
+- The carousel directory contains the code that implements a Bootstrap slider in the top portion of the home page.
+
 # Angular 2+
 
 Notes from Manning's Angular 2 with Typescript
