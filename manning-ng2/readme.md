@@ -130,6 +130,7 @@ Angular offers two location strategies for implementing client-side navigation:
 
 #### Stuff to research
 
+- ngModule imports vs. declaration
 - SystemJS
 - Template local variables
 - Typescript
