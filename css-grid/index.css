@@ -21,3 +21,8 @@ body {
   font-weight: bold;
   padding: 10px;
 }
+
+.container .item:nth-child(8) {
+  background: red;
+  grid-column: span 2;
+}

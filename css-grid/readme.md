@@ -84,6 +84,13 @@ div.container {
 
 ### Sizing Grid Items
 
+```css
+.container .item:nth-child(8) {
+  background: red;
+  grid-column: span 2;
+}
+```
+
 ### Placing Grid Items
 
 ### Spanning and Placing
