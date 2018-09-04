@@ -24,5 +24,6 @@ body {
 
 .container .item:nth-child(8) {
   background: red;
-  grid-column: span 2;
+  grid-column: span;
+  grid-row: span 2;
 }

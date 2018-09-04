@@ -84,10 +84,15 @@ div.container {
 
 ### Sizing Grid Items
 
+Tells the browser to span the element over _n_ grid columns/rows.
+
+If you set an explicit height/width for an item, the grid will calucate the values and placethe other items around the element(s).
+
 ```css
 .container .item:nth-child(8) {
   background: red;
   grid-column: span 2;
+  grid-row: span 2;
 }
 ```
 
