@@ -1,9 +1,9 @@
-const puppeteer = require("puppeteer");
-const puppeteer_func = require("./puppeteer");
+const puppeteer = require('puppeteer');
+const puppeteer_func = require('./puppeteer');
 const pageURL =
-  "https://actnow.tofighthiv.org/site/SSurvey?ACTION_REQUIRED=URI_ACTION_USER_REQUESTS&SURVEY_ID=35573";
+	'https://actnow.tofighthiv.org/site/SSurvey?ACTION_REQUIRED=URI_ACTION_USER_REQUESTS&SURVEY_ID=35573';
 const submitBtn =
-  'html > body > form > div.appArea > p > input[type="submit"]#ACTION_SUBMIT_SURVEY_RESPONSE';
+	'html > body > form > div.appArea > p > input[type="submit"]#ACTION_SUBMIT_SURVEY_RESPONSE';
 
 /**
  * @param {string} first the user's first name.
@@ -28,4 +28,4 @@ const submitBtn =
 //   await browser.close();
 // }
 
-puppeteer_func("henlo, fren");
+puppeteer_func('henlo, fren');
