@@ -1,8 +1,5 @@
-/**
- * Something about the project.
- */
-
 const puppeteer = require("puppeteer");
+const puppeteer_func = require("./puppeteer");
 const pageURL =
   "https://actnow.tofighthiv.org/site/SSurvey?ACTION_REQUIRED=URI_ACTION_USER_REQUESTS&SURVEY_ID=35573";
 const submitBtn =
@@ -16,17 +13,19 @@ const submitBtn =
  * @param {string} phone the user's phone number.
  * @param {string} type the user's participant type.
  */
-async function submitForm(first, last, zip, email, phone, type) {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
+// async function submitForm(first, last, zip, email, phone, type) {
+//   const browser = await puppeteer.launch();
+//   const page = await browser.newPage();
 
-  // Go to page
-  await page.goto(pageURL);
+//   // Go to page
+//   await page.goto(pageURL);
 
-  // Wait for the submit button to render on the page.
-  await page.waitForSelector(submitBtn);
-  // Click the submit butotn when form has been completed.
-  await page.click(submitBtn);
+//   // Wait for the submit button to render on the page.
+//   await page.waitForSelector(submitBtn);
+//   // Click the submit butotn when form has been completed.
+//   await page.click(submitBtn);
 
-  await browser.close();
-}
+//   await browser.close();
+// }
+
+puppeteer_func("henlo, fren");
