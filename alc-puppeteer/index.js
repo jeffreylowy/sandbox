@@ -7,4 +7,6 @@ const puppet = require('./puppeteer');
 const [path, file, ...args] = process.argv;
 const [first, last, email, zip, phone, type] = args;
 
-puppet(first, last, email, zip, phone, type);
+const exit = process.exit;
+
+puppet(first, last, email, zip, phone, type, exit);

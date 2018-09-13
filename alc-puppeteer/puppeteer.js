@@ -3,7 +3,7 @@ const formURL =
 	'https://actnow.tofighthiv.org/site/SSurvey?ACTION_REQUIRED=URI_ACTION_USER_REQUESTS&SURVEY_ID=';
 const formID = '35573';
 
-async function puppet(first, last, email, zip, phone, type) {
+async function puppet(first, last, email, zip, phone, type, callback) {
 	const browser = await puppeteer.launch({ headless: false });
 	const page = await browser.newPage();
 
@@ -42,6 +42,7 @@ async function puppet(first, last, email, zip, phone, type) {
 	const navigationPromise = page.waitForNavigation();
 	await navigationPromise;
 	await browser.close();
+	callback();
 }
 
 module.exports = puppet;
