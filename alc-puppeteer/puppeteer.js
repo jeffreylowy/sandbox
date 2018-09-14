@@ -39,7 +39,7 @@ async function puppet(first, last, email, zip, phone, type, callback) {
 
 	// Close the browser after page has been submitted
 	//@todo: Test for success/next page or page error Blackbaud form submission error.
-	const navigationPromise = page.waitForNavigation();
+	const navigationPromise = page.waitForNavigation({ waitUntil: 'networkidle0' });
 	await navigationPromise;
 	await browser.close();
 	callback();
