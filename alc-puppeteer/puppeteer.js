@@ -5,7 +5,10 @@ const formID = '35573';
 
 async function puppet(first, last, email, zip, phone, type, callback) {
 	const browser = await puppeteer.launch({ headless: false });
-	const page = await browser.newPage();
+	// Create a new incognito browser context.
+	const context = await browser.createIncognitoBrowserContext();
+	// Create a new page in a pristine context.
+	const page = await context.newPage();
 
 	await page.goto(`${formURL}${formID}`, { waitUntil: 'networkidle2' });
 
@@ -41,7 +44,7 @@ async function puppet(first, last, email, zip, phone, type, callback) {
 	//@todo: Test for success/next page or page error Blackbaud form submission error.
 	const navigationPromise = page.waitForNavigation({ waitUntil: 'networkidle2' });
 	await navigationPromise;
-	await browser.close();
+	await context.close();
 	callback();
 }
 
