@@ -38,14 +38,16 @@ async function puppet(first, last, email, zip, phone, type, callback) {
 	}
 
 	// Submit the form
-	await page.click('#ACTION_SUBMIT_SURVEY_RESPONSE');
+	//await page.click('#ACTION_SUBMIT_SURVEY_RESPONSE');
 
 	// Close the browser after page has been submitted
 	//@todo: Test for success/next page or page error Blackbaud form submission error.
 	const navigationPromise = page.waitForNavigation({ waitUntil: 'networkidle2' });
 	await navigationPromise;
 	await context.close();
-	callback();
+	if (!!callback) {
+		callback();
+	}
 }
 
 module.exports = puppet;
