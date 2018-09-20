@@ -9,6 +9,6 @@ exports.zapier = functions.https.onRequest((request, response) => {
 	let { first, last, email, zip, phone, type } = request.body;
 
 	// puppeteer(first, last, email, zip, phone, type, callback);
-	logger({ first, last, email, zip, phone, type });
+	logger('test');
 	response.send('Henlo!');
 });
