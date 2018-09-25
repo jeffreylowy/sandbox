@@ -1,9 +1,8 @@
-const puppeteer = require('puppeteer');
-const processCSV = require('./process-csv');
+const puppeteer = require('./functions/utils/puppeteer');
+const processCSV = require('./functions/utils/process-csv');
 
-// @todo: what does the args array look like depending on the data the user submits
 const [path, file, ...args] = process.argv;
 const [first, last, email, zip, phone, type] = args;
 
-// node index.js ./leads.csv
+// Envoke by running `node index.js ./leads.csv` from the commandline.
 processCSV(args[0]);

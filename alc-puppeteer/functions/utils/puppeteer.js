@@ -45,7 +45,9 @@ async function puppet(first, last, email, zip, phone, type, callback) {
 	const navigationPromise = page.waitForNavigation({ waitUntil: 'networkidle2' });
 	await navigationPromise;
 	await context.close();
-	callback();
+	if (!!callback) {
+		callback();
+	}
 }
 
 module.exports = puppet;
