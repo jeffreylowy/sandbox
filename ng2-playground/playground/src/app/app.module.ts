@@ -4,10 +4,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SelectComponent } from './select/select.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { DialogFormComponent } from './dialog/dialog.component';
+import { AutocompleteComponent } from './autocomplete/autocomplete.component';
+import { NewsetComponent } from './newset/newset.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { DialogFormComponent } from './dialog/dialog.component';
     SelectComponent,
     DialogComponent,
     DialogFormComponent,
+    AutocompleteComponent,
+    NewsetComponent,
   ],
   entryComponents: [DialogComponent, DialogFormComponent],
   imports: [
@@ -23,6 +27,7 @@ import { DialogFormComponent } from './dialog/dialog.component';
     AppRoutingModule,
     MaterialModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
