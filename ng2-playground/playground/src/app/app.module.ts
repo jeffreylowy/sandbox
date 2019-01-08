@@ -9,7 +9,6 @@ import { SelectComponent } from './select/select.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { DialogFormComponent } from './dialog/dialog.component';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
-import { NewsetComponent } from './newset/newset.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,6 @@ import { NewsetComponent } from './newset/newset.component';
     DialogComponent,
     DialogFormComponent,
     AutocompleteComponent,
-    NewsetComponent,
   ],
   entryComponents: [DialogComponent, DialogFormComponent],
   imports: [
