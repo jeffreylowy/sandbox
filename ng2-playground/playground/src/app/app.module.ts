@@ -9,6 +9,7 @@ import { SelectComponent } from './select/select.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { DialogFormComponent } from './dialog/dialog.component';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
+import { AnimationsComponent } from './animations/animations.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { AutocompleteComponent } from './autocomplete/autocomplete.component';
     DialogComponent,
     DialogFormComponent,
     AutocompleteComponent,
+    AnimationsComponent,
   ],
   entryComponents: [DialogComponent, DialogFormComponent],
   imports: [

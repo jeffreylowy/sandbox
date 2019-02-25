@@ -1,0 +1,17 @@
+.RsAcmc.CAwICe {
+  transform: translate3d(0, 66.7%, 0);
+}
+
+.RsAcmc.iWO5td {
+  transition: transform 0.325s cubic-bezier(0.24, 1, 0.32, 1),
+    opacity 0.154s cubic-bezier(0.24, 1, 0.32, 1);
+}
+// ON
+.llhEMd.iWO5td {
+  transition: opacity 0.05s cubic-bezier(0.4, 0, 0.2, 1);
+}
+// OFF
+.RsAcmc.kdCdqc {
+  transform: translate3d(0, calc(100% + 64px), 0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s linear;
+}
