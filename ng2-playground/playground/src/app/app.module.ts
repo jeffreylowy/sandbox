@@ -10,7 +10,10 @@ import { DialogComponent } from './dialog/dialog.component';
 import { DialogFormComponent } from './dialog/dialog.component';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { AnimationsComponent } from './animations/animations.component';
-import { EffectsComponent } from './effects/effects.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './effects/app.effects';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,6 @@ import { EffectsComponent } from './effects/effects.component';
     DialogFormComponent,
     AutocompleteComponent,
     AnimationsComponent,
-    EffectsComponent,
   ],
   entryComponents: [DialogComponent, DialogFormComponent],
   imports: [
@@ -29,7 +31,9 @@ import { EffectsComponent } from './effects/effects.component';
     AppRoutingModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
+    EffectsModule.forRoot([AppEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],
