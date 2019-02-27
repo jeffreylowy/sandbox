@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
@@ -11,7 +12,7 @@ import { DialogFormComponent } from './dialog/dialog.component';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { AnimationsComponent } from './animations/animations.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+import { counterReducer, counterReducer2 } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './effects/app.effects';
 
@@ -32,7 +33,10 @@ import { AppEffects } from './effects/app.effects';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreModule.forRoot({ count: counterReducer, count2: counterReducer2 }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+    }),
     EffectsModule.forRoot([AppEffects]),
   ],
   providers: [],
