@@ -15,6 +15,7 @@ import { StoreModule } from '@ngrx/store';
 import { counterReducer, counterReducer2 } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './effects/app.effects';
+import { DemoComponent } from './demo/demo.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AppEffects } from './effects/app.effects';
     DialogFormComponent,
     AutocompleteComponent,
     AnimationsComponent,
+    DemoComponent,
   ],
   entryComponents: [DialogComponent, DialogFormComponent],
   imports: [
