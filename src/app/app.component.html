@@ -1,8 +1,10 @@
-<div id="bigbox" style="border: 1px solid red;" *ngIf="display">
-  <!-- <app-animations></app-animations> -->
-  <router-outlet></router-outlet>
-  <router-outlet name="label-window"></router-outlet>
-  <button (click)="closeWindow()">close</button>
-</div>
+<ng-container *ngIf="display">
+  <div id="bigbox" style="border: 1px solid red;" #container>
+    <!-- <app-animations></app-animations> -->
+    <router-outlet></router-outlet>
+    <router-outlet name="label-window"></router-outlet>
+    <button (click)="closeWindow()">close</button>
+  </div>
+</ng-container>
 
 <button (click)="openWindow()">open</button>
