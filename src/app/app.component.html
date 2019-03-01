@@ -1,10 +1,23 @@
-<ng-container *ngIf="display">
-  <div id="bigbox" style="border: 1px solid red;" #container>
-    <!-- <app-animations></app-animations> -->
-    <router-outlet></router-outlet>
-    <router-outlet name="label-window"></router-outlet>
-    <button (click)="closeWindow()">close</button>
-  </div>
-</ng-container>
+<!-- <ng-container *ngIf="display"> -->
+<div
+  @myInsertRemoveTrigger
+  id="bigbox"
+  style="border: 1px solid red;"
+  #container
+>
+  <!-- <app-animations></app-animations> -->
+  <router-outlet></router-outlet>
+  <router-outlet name="label-window"></router-outlet>
+  <button (click)="closeWindow()">close</button>
+  <button
+    style="display: block; max-width: 200px;"
+    (click)="addComponent(demoComponentClass)"
+  >
+    add
+  </button>
+</div>
+<!-- </ng-container> -->
 
-<button (click)="openWindow()">open</button>
+<button style="display: block; max-width: 200px;" (click)="openWindow()">
+  open
+</button>

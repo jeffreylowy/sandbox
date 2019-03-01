@@ -8,12 +8,32 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  // ...
+} from '@angular/animations';
+
 import { DemoComponent } from './demo/demo.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  animations: [
+    trigger('myInsertRemoveTrigger', [
+      transition(':enter', [
+        style({ transform: 'translate3d(0, 100%, 0)' }),
+        animate(
+          '500ms cubic-bezier(0.4, 0, 0.2, 1)',
+          style({ transform: 'translate3d(0, 0%, 0)' })
+        ),
+      ]),
+    ]),
+  ],
 })
 export class AppComponent implements OnInit, AfterViewInit {
   display = false;
