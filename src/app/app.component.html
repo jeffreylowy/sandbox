@@ -1,12 +1,10 @@
-<!-- <ng-container *ngIf="display"> -->
 <router-outlet></router-outlet>
-<div
+<!-- <div
   @myInsertRemoveTrigger
   id="bigbox"
   style="border: 1px solid red;"
   #container
 >
-  <!-- <app-animations></app-animations> -->
   <router-outlet name="label-window"></router-outlet>
   <button (click)="closeWindow()">close</button>
   <button
@@ -15,9 +13,13 @@
   >
     add
   </button>
-</div>
-<!-- </ng-container> -->
+</div> -->
 
-<button style="display: block; max-width: 200px;" (click)="openWindow()">
+<button
+  style="display: block; width: 200px;"
+  (click)="addComponent(demoComponentClass)"
+>
   open
 </button>
+
+<div class="container" #container></div>

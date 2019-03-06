@@ -35,7 +35,7 @@ import { DemoComponent } from './demo/demo.component';
     ]),
   ],
 })
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent {
   display = false;
 
   @ViewChild('container', { read: ViewContainerRef })
@@ -49,22 +49,6 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
 
-  ngOnInit() {
-    console.log(this.container);
-  }
-
-  ngAfterViewInit() {
-    console.log(this.container);
-  }
-
-  openWindow() {
-    this.display = true;
-    console.log(this.container);
-  }
-
-  closeWindow() {
-    this.display = false;
-  }
   addComponent(componentClass: Type<any>) {
     // Create component dynamically inside the ng-template
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
