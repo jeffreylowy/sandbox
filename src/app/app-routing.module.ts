@@ -4,9 +4,11 @@ import { SelectComponent } from './select/select.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { DemoComponent } from './demo/demo.component';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
+import { PieComponent } from './charts/pie/pie.component';
 
 const routes: Routes = [
   { path: 'select', component: SelectComponent },
+  { path: 'pie', component: PieComponent },
   {
     path: 'select/:test',
     component: DemoComponent,

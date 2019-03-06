@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ChartsModule } from './charts/charts.module';
 import { SelectComponent } from './select/select.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { DialogFormComponent } from './dialog/dialog.component';
@@ -33,6 +34,7 @@ import { DemoComponent } from './demo/demo.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     MaterialModule,
+    ChartsModule,
     FormsModule,
     ReactiveFormsModule,
     StoreModule.forRoot({ count: counterReducer, count2: counterReducer2 }),
