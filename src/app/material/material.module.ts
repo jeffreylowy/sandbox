@@ -5,18 +5,27 @@ import {
   MatSelectModule,
   MatFormFieldModule,
   MatDialogModule,
-  MatAutocompleteModule
+  MatAutocompleteModule,
+  MatTabsModule,
 } from '@angular/material';
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, MatDialogModule, MatSelectModule, MatFormFieldModule, MatAutocompleteModule],
+  imports: [
+    CommonModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatAutocompleteModule,
+    MatTabsModule,
+  ],
   exports: [
     MatInputModule,
     MatDialogModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatTabsModule,
   ],
 })
 export class MaterialModule {}

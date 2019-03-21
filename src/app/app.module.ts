@@ -17,6 +17,7 @@ import { counterReducer, counterReducer2 } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './effects/app.effects';
 import { DemoComponent } from './demo/demo.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { DemoComponent } from './demo/demo.component';
     AutocompleteComponent,
     AnimationsComponent,
     DemoComponent,
+    NavComponent,
   ],
   entryComponents: [DialogComponent, DialogFormComponent],
   imports: [
