@@ -41,6 +41,9 @@ export class AppComponent {
   @ViewChild('container', { read: ViewContainerRef })
   container: ViewContainerRef | null = null;
 
+  @ViewChild('container2', { read: ViewContainerRef })
+  container2: ViewContainerRef | null = null;
+
   // Keep track of list of generated components for removal purposes
   components = [];
 
