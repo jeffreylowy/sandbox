@@ -18,6 +18,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './effects/app.effects';
 import { DemoComponent } from './demo/demo.component';
 import { NavComponent } from './nav/nav.component';
+import { SanityTestComponent } from './sanity-test/sanity-test.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { NavComponent } from './nav/nav.component';
     AnimationsComponent,
     DemoComponent,
     NavComponent,
+    SanityTestComponent,
   ],
   entryComponents: [DialogComponent, DialogFormComponent],
   imports: [
