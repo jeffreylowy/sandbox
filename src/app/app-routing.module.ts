@@ -5,7 +5,7 @@ import { DialogComponent } from './dialog/dialog.component';
 import { DemoComponent } from './demo/demo.component';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { PieComponent } from './charts/pie/pie.component';
-
+import { KeyboardEventsComponent } from './keyboard-events/keyboard-events.component';
 const routes: Routes = [
   { path: 'select', component: SelectComponent },
   { path: 'pie', component: PieComponent },
@@ -19,7 +19,7 @@ const routes: Routes = [
     path: 'autocomplete',
     component: AutocompleteComponent,
   },
-  { path: '', component: DemoComponent, outlet: 'label-window' },
+  { path: '', component: KeyboardEventsComponent },
 ];
 
 @NgModule({

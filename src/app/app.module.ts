@@ -19,6 +19,7 @@ import { AppEffects } from './effects/app.effects';
 import { DemoComponent } from './demo/demo.component';
 import { NavComponent } from './nav/nav.component';
 import { SanityTestComponent } from './sanity-test/sanity-test.component';
+import { KeyboardEventsComponent } from './keyboard-events/keyboard-events.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { SanityTestComponent } from './sanity-test/sanity-test.component';
     DemoComponent,
     NavComponent,
     SanityTestComponent,
+    KeyboardEventsComponent,
   ],
   entryComponents: [DialogComponent, DialogFormComponent],
   imports: [

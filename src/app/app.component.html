@@ -2,34 +2,11 @@
 
 <router-outlet></router-outlet>
 
-<!-- <div
-  @myInsertRemoveTrigger
-  id="bigbox"
-  style="border: 1px solid red;"
-  #container2
->
-  <router-outlet name="label-window"></router-outlet>
-  <button (click)="removeComponent(demoComponentClass)">close</button>
-  <button
-    style="display: block; max-width: 200px;"
-    (click)="addComponent(demoComponentClass)"
-  >
-    add
-  </button>
-</div> -->
-
 <button
   style="display: block; width: 200px;"
   (click)="addComponent(demoComponentClass)"
 >
   Append demo
-</button>
-
-<button
-  style="display: block; width: 200px;"
-  (click)="addComponent(demoComponentClass)"
->
-  open
 </button>
 
 <div class="container" #container></div>
