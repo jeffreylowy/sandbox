@@ -9,8 +9,13 @@ export class KeyboardEventsComponent implements OnInit {
   constructor(private renderer: Renderer2) {}
 
   ngOnInit() {
-    this.renderer.listen(document, 'keydown.alt.k', () => {
-      console.log('meta cmd key');
+    this.renderer.listen(document, 'keydown.alt', (event) => {
+      console.log('alt 1');
     });
+  }
+
+  test(event) {
+    const regex = /^\d+$/.test(event.key);
+    console.log('event', event, 'regex', regex);
   }
 }
