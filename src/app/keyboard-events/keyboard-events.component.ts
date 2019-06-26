@@ -25,13 +25,13 @@ import {
 export class KeyboardEventsComponent
   implements OnInit, AfterViewInit, OnDestroy {
   afterViewInit = false;
-  numberKeyValues: Observable<string>;
-  numberKeysSubscription: Subscription | null;
+  digitKeyPressValues: Observable<string>;
+  digitKeysSubscription: Subscription | null;
 
   constructor(private renderer: Renderer2) {
     // Listen for keydown events on the document and filter out keys that are
     // not numbers (i.e. * % /)
-    this.numberKeyValues = fromEvent(document, 'keypress').pipe(
+    this.digitKeyPressValues = fromEvent(document, 'keypress').pipe(
       filter(this.filterDigitKeys),
       map((digkitKeyPress) => digkitKeyPress.key)
     );
@@ -44,18 +44,18 @@ export class KeyboardEventsComponent
   }
 
   ngAfterViewInit() {
-    this.numberKeysSubscription = this.numberKeyValues
+    this.digitKeysSubscription = this.digitKeyPressValues
       .pipe(
         // buffer keypresses - collecting values for 250ms
-        buffer(this.numberKeyValues.pipe(debounceTime(250))),
+        buffer(this.digitKeyPressValues.pipe(debounceTime(250))),
         switchMap(this.joinKeyPresses)
       )
       .subscribe(this.focusInput);
   }
 
   ngOnDestroy() {
-    if (this.numberKeysSubscription) {
-      this.numberKeysSubscription.unsubscribe();
+    if (this.digitKeysSubscription) {
+      this.digitKeysSubscription.unsubscribe();
     }
   }
 
@@ -75,8 +75,7 @@ export class KeyboardEventsComponent
     return of(Number(digitsArray.join('').slice(0, 2)));
   }
 
-  test(event) {
-    const regex = /^\d+$/.test(event.key);
-    console.log('event', event, 'regex', regex);
+  test(event, input) {
+    console.log('event', event, 'input', input);
   }
 }
