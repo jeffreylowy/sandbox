@@ -1,4 +1,8 @@
-<input (keydown)="test($event)" placeholder="test" />
+<input
+  #myInput
+  (keydown.control.d)="$event.preventDefault(); test($event, myInput)"
+  placeholder="test"
+/>
 
 <!-- MORE EXAMPLES -->
 
