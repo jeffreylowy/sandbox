@@ -29,14 +29,10 @@ export class KeyboardEventsComponent
   numberKeysSubscription: Subscription | null;
 
   constructor(private renderer: Renderer2) {
-    // Listen for keydown events on the document and filter for digit keys
-    this.numberKeyValues = fromEvent(document, 'keydown').pipe(
-      filter((keyPress: KeyboardEvent) => {
-        return (
-          keyPress.code.toLowerCase().startsWith('digit') &&
-          !isNaN(Number(keyPress.key))
-        );
-      }),
+    // Listen for keydown events on the document and filter out keys that are
+    // not numbers (i.e. * % /)
+    this.numberKeyValues = fromEvent(document, 'keypress').pipe(
+      filter(this.filterDigitKeys),
       map((digkitKeyPress) => digkitKeyPress.key)
     );
   }
@@ -50,12 +46,9 @@ export class KeyboardEventsComponent
   ngAfterViewInit() {
     this.numberKeysSubscription = this.numberKeyValues
       .pipe(
-        // collect key press values for 250ms
+        // buffer keypresses - collecting values for 250ms
         buffer(this.numberKeyValues.pipe(debounceTime(250))),
-        switchMap((numArray) => {
-          // Keep only the first two digits the user types
-          return of(Number(numArray.join('').slice(0, 2)) - 1);
-        })
+        switchMap(this.joinKeyPresses)
       )
       .subscribe(this.focusInput);
   }
@@ -66,8 +59,20 @@ export class KeyboardEventsComponent
     }
   }
 
-  focusInput(keys: any): void {
-    console.log('index of input to locate: ', keys);
+  filterDigitKeys(keyPress: KeyboardEvent) {
+    return (
+      keyPress.code.toLowerCase().startsWith('digit') &&
+      !isNaN(Number(keyPress.key))
+    );
+  }
+
+  focusInput(inputToLocate: number): void {
+    console.log('index of input to locate: ', inputToLocate - 1);
+  }
+
+  joinKeyPresses(digitsArray: string[]): Observable<number> {
+    // Keep only the first two digit keys pressed.
+    return of(Number(digitsArray.join('').slice(0, 2)));
   }
 
   test(event) {
