@@ -21,6 +21,7 @@ import { NavComponent } from './nav/nav.component';
 import { SanityTestComponent } from './sanity-test/sanity-test.component';
 import { KeyboardEventsComponent } from './keyboard-events/keyboard-events.component';
 import { KeyboardFabComponent } from './keyboard-fab/keyboard-fab.component';
+import { RxAnimationsComponent } from './rx-animations/rx-animations.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { KeyboardFabComponent } from './keyboard-fab/keyboard-fab.component';
     SanityTestComponent,
     KeyboardEventsComponent,
     KeyboardFabComponent,
+    RxAnimationsComponent,
   ],
   entryComponents: [DialogComponent, DialogFormComponent],
   imports: [
