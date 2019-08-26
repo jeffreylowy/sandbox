@@ -10,7 +10,16 @@ import { CryptoComponent } from './crypto/crypto.component';
 const routes: Routes = [
   { path: 'select', component: SelectComponent },
   { path: 'pie', component: PieComponent },
-  { path: 'crypto', component: CryptoComponent },
+  {
+    path: 'crypto',
+    component: CryptoComponent,
+    children: [
+      {
+        path: ':id',
+        component: CryptoComponent,
+      },
+    ],
+  },
   {
     path: 'select/:test',
     component: DemoComponent,
