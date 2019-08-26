@@ -8,7 +8,9 @@ import { takeUntil, repeat, startWith, switchMap, tap } from 'rxjs/operators';
   styleUrls: ['./rx-animations.component.scss'],
 })
 export class RxAnimationsComponent implements OnInit {
-  @ViewChild('paragraph') paragraph: ElementRef<HTMLElement> | null = null;
+  @ViewChild('paragraph') paragraph: ElementRef<
+    HTMLParagraphElement
+  > | null = null;
 
   constructor() {}
 
@@ -31,9 +33,10 @@ export class RxAnimationsComponent implements OnInit {
   }
 
   updateBackground(x) {
-    if (this.paragraph) {
-      (this.paragraph as E).style.background = `hsl(${x}, 100%, 45%)`;
-      (this.paragraph as HTMLElement).textContent = String(x);
-    }
+    // if (this.paragraph) {
+    //   this.paragraph.style.background = `hsl(${x}, 100%, 45%)`;
+    //   this.paragraph.textContent = String(x);
+    // }
+    return x;
   }
 }
