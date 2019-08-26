@@ -6,9 +6,11 @@ import { DemoComponent } from './demo/demo.component';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { PieComponent } from './charts/pie/pie.component';
 import { KeyboardEventsComponent } from './keyboard-events/keyboard-events.component';
+import { CryptoComponent } from './crypto/crypto.component';
 const routes: Routes = [
   { path: 'select', component: SelectComponent },
   { path: 'pie', component: PieComponent },
+  { path: 'crypto', component: CryptoComponent },
   {
     path: 'select/:test',
     component: DemoComponent,
