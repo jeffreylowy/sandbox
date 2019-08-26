@@ -1,5 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * Crypto Docs
+ * https://github.com/mdn/dom-examples/tree/master/web-crypto/encrypt-decrypt
+ * https://github.com/mdn/dom-examples/blob/master/web-crypto/encrypt-decrypt/rsa-oaep.js
+ * https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto
+ * https://developer.mozilla.org/en-US/docs/Web/API/CryptoKey
+ * https://www.w3schools.com/jsref/jsref_decodeuricomponent.asp
+ * https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues
+ */
+
 @Component({
   selector: 'app-crypto',
   templateUrl: './crypto.component.html',
@@ -14,13 +24,22 @@ export class CryptoComponent implements OnInit {
       laudantium iure possimus odio.`;
     },
     getTranscriptId: () => '1234567890',
-    getPosition: () => '1234567890',
+    getPosition: () => '2',
     getProjectId: () => 'AT&T',
   };
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    var values = crypto.getRandomValues(new Uint8Array(12));
+    console.log(values);
+  }
+
+  secureMathRandom() {
+    // Divide a random UInt32 by the maximum value (2^32 -1) to get a result
+    // between 0 and 1
+    return window.crypto.getRandomValues(new Uint32Array(1))[0] / 4294967295;
+  }
 
   copyTranscriptData(): string[] {
     const data = [
@@ -29,7 +48,11 @@ export class CryptoComponent implements OnInit {
       this.message.getProjectId(),
     ];
 
-    console.log(data);
+    const a = btoa(encodeURIComponent(data.toString()));
+    const b = atob(a);
+    const c = decodeURIComponent(b);
+
+    console.log('a', a, 'b', b, 'c', c, 'rand', this.secureMathRandom());
     return data;
   }
 }
