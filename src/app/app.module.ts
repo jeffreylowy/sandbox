@@ -23,6 +23,7 @@ import { KeyboardEventsComponent } from './keyboard-events/keyboard-events.compo
 import { KeyboardFabComponent } from './keyboard-fab/keyboard-fab.component';
 import { RxAnimationsComponent } from './rx-animations/rx-animations.component';
 import { CryptoComponent } from './crypto/crypto.component';
+import { EnumSelectComponent } from './enum-select/enum-select.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { CryptoComponent } from './crypto/crypto.component';
     KeyboardFabComponent,
     RxAnimationsComponent,
     CryptoComponent,
+    EnumSelectComponent,
   ],
   entryComponents: [DialogComponent, DialogFormComponent],
   imports: [
