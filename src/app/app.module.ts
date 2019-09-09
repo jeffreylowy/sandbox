@@ -23,7 +23,8 @@ import { KeyboardEventsComponent } from './keyboard-events/keyboard-events.compo
 import { KeyboardFabComponent } from './keyboard-fab/keyboard-fab.component';
 import { RxAnimationsComponent } from './rx-animations/rx-animations.component';
 import { CryptoComponent } from './crypto/crypto.component';
-import { EnumSelectComponent } from './enum-select/enum-select.component';
+// import { EnumSelectComponent } from './enum-select/enum-select.component';
+import { CustomFormsModule } from './forms/forms.module';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { EnumSelectComponent } from './enum-select/enum-select.component';
     KeyboardFabComponent,
     RxAnimationsComponent,
     CryptoComponent,
-    EnumSelectComponent,
+    // EnumSelectComponent,
   ],
   entryComponents: [DialogComponent, DialogFormComponent],
   imports: [
@@ -51,6 +52,7 @@ import { EnumSelectComponent } from './enum-select/enum-select.component';
     ChartsModule,
     FormsModule,
     ReactiveFormsModule,
+    CustomFormsModule,
     StoreModule.forRoot({ count: counterReducer, count2: counterReducer2 }),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
