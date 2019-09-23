@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { of } from 'rxjs';
 import { Increment, Increment2, Decrement, Reset } from '../reducers';
 
 @Component({
@@ -9,7 +10,9 @@ import { Increment, Increment2, Decrement, Reset } from '../reducers';
   styleUrls: ['./select.component.scss'],
 })
 export class SelectComponent implements OnInit {
+  cars$: Observable<string[]>;
   foods: string[];
+  foods$: Observable<string[]>;
   count$: Observable<number>;
   count2$: Observable<number>;
   constructor(private store: Store<{ count: number }>) {
@@ -19,6 +22,8 @@ export class SelectComponent implements OnInit {
 
   ngOnInit() {
     this.foods = ['apple', 'pizza', 'meatballs', 'ice cream'];
+    this.cars$ = of([]);
+    this.foods$ = of(this.foods);
   }
 
   increment() {

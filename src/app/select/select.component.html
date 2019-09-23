@@ -1,13 +1,22 @@
 <h4>Basic mat-select</h4>
 <mat-form-field>
   <mat-select placeholder="Favorite food">
-    <mat-option *ngFor="let food of foods" [value]="food">
-      {{ food }}
-    </mat-option>
+    <ng-container *ngIf="foods$ | async as foods">
+      <option *ngIf="foods.length">FOODS</option>
+      <mat-option *ngFor="let food of foods" [value]="food">
+        {{ food }}
+      </mat-option>
+    </ng-container>
+    <ng-container *ngIf="cars$ | async as cars">
+      <option *ngIf="cars.length">CARS</option>
+      <mat-option *ngFor="let car of cars" [value]="car">
+        {{ car }}
+      </mat-option>
+    </ng-container>
   </mat-select>
 </mat-form-field>
 
-<h4>Basic native select</h4>
+<!-- <h4>Basic native select</h4>
 <mat-form-field>
   <select matNativeControl required>
     <option value="volvo">Volvo</option>
@@ -34,4 +43,4 @@
   <div>
     <button (click)="reset()">Reset Counter</button>
   </div>
-</div>
+</div> -->
