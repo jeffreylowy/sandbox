@@ -25,6 +25,7 @@ import { RxAnimationsComponent } from './rx-animations/rx-animations.component';
 import { CryptoComponent } from './crypto/crypto.component';
 // import { EnumSelectComponent } from './enum-select/enum-select.component';
 import { CustomFormsModule } from './forms/forms.module';
+import { SubjectsModule } from './subjects/subjects.module';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { CustomFormsModule } from './forms/forms.module';
     FormsModule,
     ReactiveFormsModule,
     CustomFormsModule,
+    SubjectsModule,
     StoreModule.forRoot({ count: counterReducer, count2: counterReducer2 }),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
