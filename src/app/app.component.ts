@@ -76,4 +76,8 @@ export class AppComponent {
       this.components.splice(componentRefIndex, 1);
     }
   }
+
+  log(event: any) {
+    console.log('NUMBER EVENT', event);
+  }
 }

@@ -1,7 +1,7 @@
 <p>subjects works! {{ subject$ | async }}</p>
 
 <button
-  [disabled]="subject$.value >= this.data.length"
+  [disabled]="subject$.value >= this.length"
   (click)="incrementSubject(subject$.value)"
 >
   increment
