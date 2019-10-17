@@ -1,5 +1,7 @@
 <p>subjects works! {{ subject$ | async }}</p>
 
+<div>position in subject component: {{ position }}</div>
+
 <button
   [disabled]="subject$.value >= this.length"
   (click)="incrementSubject(subject$.value)"

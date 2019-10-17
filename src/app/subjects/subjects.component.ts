@@ -20,12 +20,13 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./subjects.component.scss'],
 })
 export class SubjectsComponent implements OnInit, OnDestroy {
-  subject$ = new BehaviorSubject(0);
-  data = [1, 2, 3, 4];
-  @Input() length: string;
+  subject$: BehaviorSubject;
+  @Input() length: number;
+  @Input() position: number;
   @Output() number = new EventEmitter<number>();
 
   constructor() {
+    this.subject$ = new BehaviorSubject(0);
     this.subject$.subscribe((num) => {
       this.number.emit(num);
     });

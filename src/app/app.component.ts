@@ -18,6 +18,7 @@ import {
 } from '@angular/animations';
 
 import { DemoComponent } from './demo/demo.component';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -37,6 +38,9 @@ import { DemoComponent } from './demo/demo.component';
 })
 export class AppComponent {
   display = false;
+
+  dataForAppSubjectComponent = ['one', 'two', 'three', 'four'];
+  SubjectComponentPosition = new BehaviorSubject(0);
 
   @ViewChild('container', { read: ViewContainerRef })
   container: ViewContainerRef | null = null;
@@ -77,7 +81,8 @@ export class AppComponent {
     }
   }
 
-  log(event: any) {
+  updateSubjectPosition(event: any) {
     console.log('NUMBER EVENT', event);
+    this.SubjectComponentPosition.next(event);
   }
 }

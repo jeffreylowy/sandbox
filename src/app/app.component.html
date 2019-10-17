@@ -13,4 +13,13 @@
 
 <!-- <div class="container" #container></div> -->
 
-<app-subjects [length]="7" (number)="log($event)"></app-subjects>
+<app-subjects
+  [length]="dataForAppSubjectComponent.length"
+  (number)="updateSubjectPosition($event)"
+  [position]="SubjectComponentPosition | async"
+></app-subjects>
+
+<div>
+  Array: {{ dataForAppSubjectComponent[SubjectComponentPosition | async] }}
+</div>
+<div>Array Pos: {{ SubjectComponentPosition | async }}</div>
