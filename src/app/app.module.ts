@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { FlexFormModule } from './flex-form/flex-form.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
@@ -55,6 +56,7 @@ import { SubjectsModule } from './subjects/subjects.module';
     ReactiveFormsModule,
     CustomFormsModule,
     SubjectsModule,
+    FlexFormModule,
     StoreModule.forRoot({ count: counterReducer, count2: counterReducer2 }),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
