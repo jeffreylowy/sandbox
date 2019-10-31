@@ -8,6 +8,7 @@ import {
   MatDialogModule,
   MatAutocompleteModule,
   MatTabsModule,
+  MatDividerModule,
 } from '@angular/material';
 
 @NgModule({
@@ -16,6 +17,7 @@ import {
     CommonModule,
     MatButtonModule,
     MatDialogModule,
+    MatDividerModule,
     MatInputModule,
     MatSelectModule,
     MatFormFieldModule,
@@ -25,6 +27,7 @@ import {
   exports: [
     MatButtonModule,
     MatDialogModule,
+    MatDividerModule,
     MatInputModule,
     MatSelectModule,
     MatFormFieldModule,

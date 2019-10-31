@@ -1,18 +1,27 @@
-<!-- <app-nav></app-nav> -->
+<h2>Tabs</h2>
+<app-nav></app-nav>
 
+<mat-divider></mat-divider>
+<h2>Select</h2>
 <app-select></app-select>
+
+<mat-divider></mat-divider>
 
 <!-- <router-outlet></router-outlet> -->
 
-<!-- <button
+<h2>Append Component</h2>
+<button
   style="display: block; width: 200px;"
   (click)="addComponent(demoComponentClass)"
 >
   Append demo
-</button> -->
+</button>
 
-<!-- <div class="container" #container></div> -->
+<div class="container" #container></div>
 
+<mat-divider></mat-divider>
+
+<h2>Subjects</h2>
 <app-subjects
   [length]="dataForAppSubjectComponent.length"
   (number)="updateSubjectPosition($event)"
@@ -23,3 +32,4 @@
   Array: {{ dataForAppSubjectComponent[SubjectComponentPosition | async] }}
 </div>
 <div>Array Pos: {{ SubjectComponentPosition | async }}</div>
+<mat-divider></mat-divider>
