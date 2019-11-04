@@ -1,0 +1,12 @@
+form {
+  display: flex;
+}
+
+form > div.main-form-ctrls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+form > div.main-form-ctrls mat-form-field {
+  flex: 0 1 28%;
+}
