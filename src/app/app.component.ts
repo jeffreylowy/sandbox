@@ -65,6 +65,13 @@ export class AppComponent {
 
     // Push the component so that we can keep track of which components are created
     this.components.push(component);
+    console.log(this.components[0]);
+    console.log(this.container);
+  }
+
+  addComponent2() {
+    console.log('adding component via component class');
+    this.addComponent(DemoComponent);
   }
 
   removeComponent(componentClass: Type<any>) {
