@@ -19,6 +19,7 @@ import {
 
 import { DemoComponent } from './demo/demo.component';
 import { BehaviorSubject } from 'rxjs';
+import { SelectComponent } from './select/select.component';
 
 @Component({
   selector: 'app-root',
@@ -53,8 +54,18 @@ export class AppComponent {
 
   // Expose class so that it can be used in the template
   demoComponentClass = DemoComponent;
+  selectFactory: any = SelectComponent;
+  componentFactory: any;
 
-  constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
+  constructor(private componentFactoryResolver: ComponentFactoryResolver) {
+    this.componentFactory = this.componentFactoryResolver.resolveComponentFactory(
+      DemoComponent
+    );
+    this.selectFactory = this.componentFactoryResolver.resolveComponentFactory(
+      SelectComponent
+    );
+    console.log(this.componentFactory);
+  }
 
   addComponent(componentClass: Type<any>) {
     // Create component dynamically inside the ng-template
@@ -65,13 +76,11 @@ export class AppComponent {
 
     // Push the component so that we can keep track of which components are created
     this.components.push(component);
-    console.log(this.components[0]);
-    console.log(this.container);
   }
 
   addComponent2() {
-    console.log('adding component via component class');
-    this.addComponent(DemoComponent);
+    this.components.push(this.container.createComponent(this.selectFactory));
+    console.log(this.components[0]);
   }
 
   removeComponent(componentClass: Type<any>) {

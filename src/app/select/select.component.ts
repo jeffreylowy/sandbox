@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs';
@@ -15,6 +15,8 @@ export class SelectComponent implements OnInit {
   foods$: Observable<string[]>;
   count$: Observable<number>;
   count2$: Observable<number>;
+  selected = '';
+  @Output() selection = new EventEmitter<string>('');
   constructor(private store: Store<{ count: number }>) {
     this.count$ = this.store.select('count');
     this.count2$ = this.store.select('count2');
