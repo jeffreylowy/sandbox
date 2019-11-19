@@ -16,7 +16,7 @@ export class SelectComponent implements OnInit {
   count$: Observable<number>;
   count2$: Observable<number>;
   selected = '';
-  @Output() selection = new EventEmitter<string>('');
+  @Output() selection = new EventEmitter<string>();
   constructor(private store: Store<{ count: number }>) {
     this.count$ = this.store.select('count');
     this.count2$ = this.store.select('count2');
@@ -26,6 +26,10 @@ export class SelectComponent implements OnInit {
     this.foods = ['apple', 'pizza', 'meatballs', 'ice cream'];
     this.cars$ = of([]);
     this.foods$ = of(this.foods);
+  }
+
+  emitButton() {
+    this.selection.emit('hello');
   }
 
   increment() {

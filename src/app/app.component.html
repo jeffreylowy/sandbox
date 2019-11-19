@@ -3,7 +3,7 @@
 
 <mat-divider></mat-divider>
 <h2>Select</h2>
-<app-select></app-select>
+<app-select (selection)="log($event); addComponent2()"></app-select>
 
 <mat-divider></mat-divider>
 

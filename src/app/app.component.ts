@@ -1,5 +1,6 @@
 import {
   Component,
+  ComponentRef,
   ComponentFactoryResolver,
   OnInit,
   AfterViewInit,
@@ -64,7 +65,8 @@ export class AppComponent {
     this.selectFactory = this.componentFactoryResolver.resolveComponentFactory(
       SelectComponent
     );
-    console.log(this.componentFactory);
+    console.log('selectFactory', this.selectFactory);
+    console.log('componentFactory', this.componentFactory);
   }
 
   addComponent(componentClass: Type<any>) {
@@ -73,14 +75,24 @@ export class AppComponent {
       componentClass
     );
     const component = this.container.createComponent(componentFactory);
+    console.log('new component>>', component);
+    console.log('this >>', this);
 
     // Push the component so that we can keep track of which components are created
     this.components.push(component);
   }
 
   addComponent2() {
-    this.components.push(this.container.createComponent(this.selectFactory));
+    const newComponent: ComponentRef<SelectComponent> = this.container.createComponent(
+      this.selectFactory
+    );
+    newComponent.instance.selection.subscribe((x: any) => {
+      console.log('x', x);
+      this.addComponent2();
+    });
+    this.components.push(newComponent);
     console.log(this.components[0]);
+    console.log('this >>', this);
   }
 
   removeComponent(componentClass: Type<any>) {
@@ -100,5 +112,9 @@ export class AppComponent {
   updateSubjectPosition(event: any) {
     console.log('NUMBER EVENT', event);
     this.SubjectComponentPosition.next(event);
+  }
+
+  log(e: Event) {
+    console.log(e);
   }
 }
