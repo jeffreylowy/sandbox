@@ -15,35 +15,10 @@
   </mat-select>
 </mat-form-field>
 
-<button type="button" (click)="emitButton()">
+<button type="button" (click)="addComp()">
   add
 </button>
 
-<!-- <h4>Basic native select</h4>
-<mat-form-field>
-  <select matNativeControl required>
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="mercedes">Mercedes</option>
-    <option value="audi">Audi</option>
-  </select>
-</mat-form-field>
-
-<div>
-  <h1>ngrx</h1>
-  <h2>Count 1: {{ count$ | async }}</h2>
-  <h2>Count 2: {{ count2$ | async }}</h2>
-  <div>
-    <button (click)="increment()">Increment</button>
-  </div>
-  <div>
-    <button (click)="increment2()">Increment2</button>
-  </div>
-
-  <div>
-    <button (click)="decrement()">Decrement</button>
-  </div>
-  <div>
-    <button (click)="reset()">Reset Counter</button>
-  </div>
-</div> -->
+<button type="button" (click)="removeComp()">
+  remove
+</button>

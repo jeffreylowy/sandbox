@@ -7,6 +7,8 @@ import {
   Type,
   ViewChild,
   ViewContainerRef,
+  ViewChildren,
+  QueryList,
 } from '@angular/core';
 
 import {
@@ -20,7 +22,7 @@ import {
 
 import { DemoComponent } from './demo/demo.component';
 import { BehaviorSubject } from 'rxjs';
-import { SelectComponent } from './select/select.component';
+import { SelectComponent, SelectEvent } from './select/select.component';
 
 @Component({
   selector: 'app-root',
@@ -50,6 +52,8 @@ export class AppComponent {
   @ViewChild('container2', { read: ViewContainerRef })
   container2: ViewContainerRef | null = null;
 
+  @ViewChildren(SelectComponent) selects!: QueryList<SelectComponent>;
+
   // Keep track of list of generated components for removal purposes
   components = [];
 
@@ -65,8 +69,6 @@ export class AppComponent {
     this.selectFactory = this.componentFactoryResolver.resolveComponentFactory(
       SelectComponent
     );
-    console.log('selectFactory', this.selectFactory);
-    console.log('componentFactory', this.componentFactory);
   }
 
   addComponent(componentClass: Type<any>) {
@@ -75,24 +77,35 @@ export class AppComponent {
       componentClass
     );
     const component = this.container.createComponent(componentFactory);
-    console.log('new component>>', component);
-    console.log('this >>', this);
 
     // Push the component so that we can keep track of which components are created
     this.components.push(component);
   }
 
-  addComponent2() {
-    const newComponent: ComponentRef<SelectComponent> = this.container.createComponent(
-      this.selectFactory
-    );
-    newComponent.instance.selection.subscribe((x: any) => {
-      console.log('x', x);
-      this.addComponent2();
-    });
-    this.components.push(newComponent);
-    console.log(this.components[0]);
-    console.log('this >>', this);
+  addRemoveLabels(event: SelectEvent) {
+    console.log('container start', this.container);
+    if (event.eventType === 'add') {
+      const newComponent: ComponentRef<SelectComponent> = this.container.createComponent(
+        this.selectFactory
+      );
+      newComponent.instance.selection.subscribe((e: SelectEvent) => {
+        this.addRemoveLabels(e);
+        this.components.push(newComponent);
+        this.components.forEach(
+          (comp: ComponentRef<SelectComponent>, i: number) => {
+            console.log('should update index');
+            comp.instance.index = i;
+          }
+        );
+      });
+    } else if (event.eventType === 'remove') {
+      console.log('remove component');
+    }
+    console.log('container end', this.container);
+    if (this.selects.length) {
+      console.log('end selects', this.selects);
+      this.selects.forEach((s) => console.log('each s', s));
+    }
   }
 
   removeComponent(componentClass: Type<any>) {
@@ -107,6 +120,10 @@ export class AppComponent {
       this.container.remove(this.container.indexOf(componentRef));
       this.components.splice(componentRefIndex, 1);
     }
+  }
+
+  removeSelf() {
+    console.log('removeSelf()');
   }
 
   updateSubjectPosition(event: any) {
