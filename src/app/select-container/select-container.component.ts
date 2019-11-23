@@ -47,8 +47,8 @@ export class SelectContainerComponent {
   }
 
   removeComponent() {
-    console.log('remove component');
-    // this.container.remove();
+    console.log('remove component', this.components);
+    // USE Object.is();
   }
 
   addRemoveLabels(event: SelectEvent) {

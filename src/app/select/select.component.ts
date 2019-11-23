@@ -6,7 +6,7 @@ import { Increment, Increment2, Decrement, Reset } from '../reducers';
 
 export interface SelectEvent {
   eventType: 'add' | 'remove';
-  index: number;
+  componentRef: SelectComponent;
 }
 
 @Component({
@@ -35,10 +35,10 @@ export class SelectComponent implements OnInit {
   }
 
   addComp() {
-    this.selection.emit({ eventType: 'add', index: this.index });
+    this.selection.emit({ eventType: 'add', componentRef: this });
   }
 
   removeComp() {
-    this.selection.emit({ eventType: 'remove', index: this.index });
+    this.selection.emit({ eventType: 'remove', componentRef: this });
   }
 }
