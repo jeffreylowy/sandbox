@@ -40,22 +40,32 @@ export class SelectContainerComponent {
       this.selectFactory
     );
     newComponent.instance.selection.subscribe((x: SelectEvent) => {
-      console.log(x);
       this.addRemoveLabels(x);
     });
     this.components.push(newComponent);
   }
 
-  removeComponent() {
-    console.log('remove component', this.components);
-    // USE Object.is();
+  removeComponent(event: SelectEvent) {
+    this.components.forEach((c, i) => {
+      if (Object.is(c.instance, event.componentRef)) {
+        this.container.remove(i);
+        this.components.splice(i, 1);
+        console.log([1, ...this.getLabels(this.components)]);
+      }
+    });
+  }
+
+  getLabels(labels: ComponentRef<SelectComponent>[]) {
+    return labels
+      .filter((c) => !!c.instance.selected)
+      .map((c) => c.instance.selected);
   }
 
   addRemoveLabels(event: SelectEvent) {
     if (event.eventType === 'add') {
       this.addComponent();
     } else if (event.eventType === 'remove') {
-      this.removeComponent();
+      this.removeComponent(event);
     }
   }
 }
