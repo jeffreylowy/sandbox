@@ -1,3 +1,11 @@
+/**
+ * 1) @Input() set options (this should be the assignedDiscs)
+ * 2) REMOVE FUNC: if (i !== 0) { this.container.remove(i)... };
+ * 3) Add [(ngModel)]="selected" to the mat-select component
+ * 4) Create an onSelect component
+ * 5) Call onSelect and do [...this.getLabels(this.components)];
+ **/
+
 import {
   Component,
   ComponentFactory,
@@ -48,11 +56,17 @@ export class SelectContainerComponent {
   removeComponent(event: SelectEvent) {
     this.components.forEach((c, i) => {
       if (Object.is(c.instance, event.componentRef)) {
-        this.container.remove(i);
-        this.components.splice(i, 1);
-        console.log([1, ...this.getLabels(this.components)]);
+        if (i !== 0) {
+          this.container.remove(i);
+          this.components.splice(i, 1);
+          console.log([1, ...this.getLabels(this.components)]);
+        }
       }
     });
+  }
+
+  onSelect() {
+    console.log('select');
   }
 
   getLabels(labels: ComponentRef<SelectComponent>[]) {
