@@ -1,5 +1,9 @@
 <mat-form-field>
-  <mat-select placeholder="Favorite food" [(ngModel)]="selected">
+  <mat-select
+    placeholder="Favorite food"
+    [(ngModel)]="selected"
+    [disabled]="disableInput"
+  >
     <ng-container *ngIf="foods$ | async as foods">
       <option *ngIf="foods.length">FOODS</option>
       <mat-option *ngFor="let food of foods" [value]="food">

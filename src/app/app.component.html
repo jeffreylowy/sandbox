@@ -2,7 +2,14 @@
 <mat-divider></mat-divider>
 
 <h2>Select w/ container</h2>
-<app-select-container (selection)="log($event)" [options]="[1, 2, 3]">
+<div>
+  <button (click)="shouldDisable = !shouldDisable">X</button>
+</div>
+<app-select-container
+  [disabled]="shouldDisable"
+  (selection)="log($event)"
+  [options]="[1, 2, 3]"
+>
 </app-select-container>
 
 <mat-divider></mat-divider>

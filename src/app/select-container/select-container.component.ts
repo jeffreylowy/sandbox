@@ -29,10 +29,17 @@ import { SelectComponent, SelectEvent } from '../select/select.component';
 export class SelectContainerComponent {
   selects = new BehaviorSubject([]);
   selectFactory: ComponentFactory<SelectComponent> | null = null;
+  disableInput = false;
   @Input() set options(options: string[]) {
     options.forEach((opt) => {
       this.addComponent();
     });
+  }
+  @Input() set disabled(disable: boolean | undefined) {
+    if (disable !== undefined) {
+      console.log('>>>>2', disable);
+      this.disableInput = disable;
+    }
   }
   @ViewChild('container', { read: ViewContainerRef })
   container: ViewContainerRef | null = null;

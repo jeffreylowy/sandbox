@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs';
@@ -22,7 +22,14 @@ export class SelectComponent implements OnInit {
   count$: Observable<number>;
   count2$: Observable<number>;
   selected = '';
+  disableInput = false;
   @Output() selection = new EventEmitter<SelectEvent>();
+  @Input() set disabled(disable: boolean | undefined) {
+    if (disable !== undefined) {
+      console.log('>>>>', disable);
+      this.disableInput = disable;
+    }
+  }
   constructor(private store: Store<{ count: number }>) {
     this.count$ = this.store.select('count');
     this.count2$ = this.store.select('count2');

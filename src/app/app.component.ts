@@ -61,6 +61,7 @@ export class AppComponent {
   demoComponentClass = DemoComponent;
   selectFactory: any = SelectComponent;
   componentFactory: any;
+  s = false;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) {
     this.componentFactory = this.componentFactoryResolver.resolveComponentFactory(
@@ -131,7 +132,7 @@ export class AppComponent {
     this.SubjectComponentPosition.next(event);
   }
 
-  log(e: Event) {
-    console.log(e);
+  log(e?: Event) {
+    console.log(!!e ? e : 'no event');
   }
 }
