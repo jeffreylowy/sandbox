@@ -28,6 +28,7 @@ import { CryptoComponent } from './crypto/crypto.component';
 import { CustomFormsModule } from './forms/forms.module';
 import { SubjectsModule } from './subjects/subjects.module';
 import { SelectContainerComponent } from './select-container/select-container.component';
+import { TableFilterModule } from './table-filter/table-filter.module';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { SelectContainerComponent } from './select-container/select-container.co
     CustomFormsModule,
     SubjectsModule,
     FlexFormModule,
+    TableFilterModule,
     StoreModule.forRoot({ count: counterReducer, count2: counterReducer2 }),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
