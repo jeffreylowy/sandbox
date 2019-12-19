@@ -1,6 +1,15 @@
 <h1>Component Demos</h1>
 <mat-divider></mat-divider>
 
+<h2>Content Projection</h2>
+<p>Paragraph in app component</p>
+<app-project-content>
+  <p *ngFor="let i of [1, 2, 3]">
+    Index of paragraph projected into child component: {{ i }}
+  </p>
+</app-project-content>
+<mat-divider></mat-divider>
+
 <h2>Select w/ container</h2>
 <div>
   <button (click)="shouldDisable = !shouldDisable">X</button>
