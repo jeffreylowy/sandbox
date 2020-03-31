@@ -32,7 +32,7 @@ export class SelectComponent implements OnInit {
   }
   constructor(private store: Store<{ count: number }>) {
     this.count$ = this.store.select('count');
-    this.count2$ = this.store.select('count2');
+    //this.count2$ = this.store.select('count2');
   }
 
   ngOnInit() {

@@ -1,5 +1,9 @@
 import { Component, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
 
 export interface DialogData {
   formData: string;
@@ -12,12 +16,13 @@ export interface DialogData {
 })
 export class DialogComponent {
   formData: string;
+  name = 'jeff';
   constructor(public dialog: MatDialog) {}
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogFormComponent, {
       width: '250px',
-      data: { formData: this.formData },
+      data: { formData: this.formData, name: 'Jeff' },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -36,4 +41,8 @@ export class DialogFormComponent {
     public dialogRef: MatDialogRef<DialogFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}
+
+  onNoClick() {
+    console.log('No onclick');
+  }
 }

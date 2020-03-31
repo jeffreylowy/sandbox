@@ -10,34 +10,10 @@
 </app-project-content>
 <mat-divider></mat-divider>
 
-<h2>Select w/ container</h2>
-<div>
-  <button (click)="shouldDisable = !shouldDisable">X</button>
-</div>
-<app-select-container
-  [disabled]="shouldDisable"
-  (selection)="log($event)"
-  [options]="[1, 2, 3]"
->
-</app-select-container>
-
-<mat-divider></mat-divider>
-
 <h2>Tabs</h2>
 <app-nav></app-nav>
 
 <mat-divider></mat-divider>
-<h2>Select</h2>
-<app-select (selection)="addRemoveLabels($event)"></app-select>
-
-<mat-divider></mat-divider>
-
-<!-- <router-outlet></router-outlet> -->
-
-<h2>Append Component</h2>
-<button style="display: block; width: 200px;" (click)="addComponent2()">
-  Append demo
-</button>
 
 <div class="container" #container></div>
 
@@ -55,9 +31,3 @@
 </div>
 <div>Array Pos: {{ SubjectComponentPosition | async }}</div>
 <mat-divider></mat-divider>
-
-<mat-divider></mat-divider>
-
-<h2>Flex Form</h2>
-
-<app-flex-form></app-flex-form>

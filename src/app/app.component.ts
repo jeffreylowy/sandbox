@@ -61,7 +61,7 @@ export class AppComponent {
   demoComponentClass = DemoComponent;
   selectFactory: any = SelectComponent;
   componentFactory: any;
-  s = false;
+  shouldDisable = false;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) {
     this.componentFactory = this.componentFactoryResolver.resolveComponentFactory(

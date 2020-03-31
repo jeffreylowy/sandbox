@@ -23,8 +23,6 @@ import { SanityTestComponent } from './sanity-test/sanity-test.component';
 import { KeyboardEventsComponent } from './keyboard-events/keyboard-events.component';
 import { KeyboardFabComponent } from './keyboard-fab/keyboard-fab.component';
 import { RxAnimationsComponent } from './rx-animations/rx-animations.component';
-import { CryptoComponent } from './crypto/crypto.component';
-// import { EnumSelectComponent } from './enum-select/enum-select.component';
 import { CustomFormsModule } from './forms/forms.module';
 import { SubjectsModule } from './subjects/subjects.module';
 import { SelectContainerComponent } from './select-container/select-container.component';
@@ -45,7 +43,6 @@ import { ProjectContentModule } from './project-content/project-content.module';
     KeyboardEventsComponent,
     KeyboardFabComponent,
     RxAnimationsComponent,
-    CryptoComponent,
     SelectContainerComponent,
     // EnumSelectComponent,
   ],
